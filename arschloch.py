@@ -173,7 +173,7 @@ async def on_message(message):  # MESSAGE_LISTENER
         content = message.content
         name = message.author.name
         await message.delete()
-        if content[0].lower() == ".quit":  # if anybody wants to quit during the game, it stops for everyone
+        if content.lower() == ".quit":  # if anybody wants to quit during the game, it stops for everyone
             await reset_game(bot)
             return
 
