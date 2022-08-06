@@ -126,7 +126,7 @@ async def on_message(message):  # MESSAGE_LISTENER
     if message.channel.name == "game":  # everything that happens in the waiting room
         await message.delete()
 
-        if message.content.lower() == ".join" and len(game.queue) < 4:  # and message.author not in queue
+        if message.content.lower() == ".join" and len(game.queue) < 4 and message.author not in game.queue:
             game.afk = False
             game.queue.append(message.author)
             await print_queue(message.channel)
